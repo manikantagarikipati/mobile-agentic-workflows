@@ -1,12 +1,14 @@
 # mobile-agentic-workflows
 
-Empty on purpose.
+**You are on `step-1`: chatting with a chatbot.**
 
-This repo is a **walk**, not a dump. Checkout the tags in order:
+Designer: "can you build this settings screen?"  
+You paste a screenshot into ChatGPT.  
+It dumps Compose. You paste into Android Studio. You spend forty minutes fixing it.
+
+See `examples/01-chat/`.
 
 ```
-git tag --list 'step-*'
-git checkout step-0   # you are here
+git checkout step-0   # empty start
+git checkout step-1   # you are here
 ```
-
-Talk: MCP, Multi-Agents, and "Grill Me"
