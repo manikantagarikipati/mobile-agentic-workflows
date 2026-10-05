@@ -1,14 +1,24 @@
 # mobile-agentic-workflows
 
-**You are on `step-1`: chatting with a chatbot.**
+A **walk**, not a dump — and now a real Android (Compose) app you can run.
 
-Designer: "can you build this settings screen?"  
-You paste a screenshot into ChatGPT.  
-It dumps Compose. You paste into Android Studio. You spend forty minutes fixing it.
+```bash
+./gradlew :app:assembleDebug
+```
 
-See `examples/01-chat/`.
+## Tags so far
+
+| Tag | Beat |
+|---|---|
+| `step-0` | Empty repo |
+| `step-1` | Chatbot paste |
+| *(this commit)* | Runnable Compose `:app` |
+
+Talk artifacts under `examples/` stay as the story. Production UI will land in `app/` as we walk.
 
 ```
-git checkout step-0   # empty start
-git checkout step-1   # you are here
+git log --reverse --oneline
+git checkout step-1
 ```
+
+Talk: **MCP, Multi-Agents, and "Grill Me"**
