@@ -57,3 +57,19 @@ Every hand-off is a **file on disk** under `.temp/<Feature>/` in the repo root
 - Figma MCP reachable (`get_design_context`, `get_screenshot`, `get_metadata`,
   `get_variable_defs`, `get_code_connect_map` — names vary by MCP server).
 - Runnable Android project (`./gradlew :app:assembleDebug`).
+- Paparazzi on `:app` — record/verify screenshot goldens for `figma` package UI:
+
+```sh
+./gradlew :app:recordPaparazziDebug   # first baseline / intentional refresh
+./gradlew :app:verifyPaparazziDebug   # builder + CI gate
+```
+
+## Package layout
+
+Created by the builder on first real Figma run (not pre-seeded with samples):
+
+| Package | Path | Purpose |
+|---|---|---|
+| `com.example.agentic.figma` | `app/src/main/java/.../figma/` | Screens from this builder |
+| `com.example.agentic.screenshot` | `app/src/test/java/.../screenshot/` | Paparazzi tests + goldens |
+| `com.example.agentic.step1` | `app/src/main/java/.../step1/` | Old talk chatbot paste — **out of scope** |

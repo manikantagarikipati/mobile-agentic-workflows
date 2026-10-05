@@ -65,8 +65,9 @@ not explicitly provided.
    `:app`, and the developer can run `./gradlew :app:assembleDebug`.
 3. Ask the developer for, if not already given:
    - Figma node URLs, each with a one-line description of what it shows
-   - Target output path (default: `app/src/main/java/com/example/agentic/...`;
-     talk artifacts may go under `examples/<step>/`)
+   - Target output path (default package: `com.example.agentic.figma` under
+     `app/src/main/java/com/example/agentic/figma/`; Paparazzi tests go to
+     `com.example.agentic.screenshot`. Do **not** use `com.example.agentic.step1`.)
    - Whether this touches an existing screen (provide file paths) or is net-new
 4. Retain all of this as "Environment Context" for every subsequent phase.
 

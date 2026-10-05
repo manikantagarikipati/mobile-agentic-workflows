@@ -12,13 +12,16 @@ allows a simpler Screen + optional Route pattern matching existing :app code.
 
 ## Owns
 
-- Kotlin under the target path from Environment Context (default
-  `app/src/main/java/com/example/agentic/...`)
+- Kotlin under **`com.example.agentic.figma`** by default
+  (`app/src/main/java/com/example/agentic/figma/...`)
+- Paparazzi tests under **`com.example.agentic.screenshot`**
+  (`app/src/test/java/com/example/agentic/screenshot/...`)
 - Previews
 - Applying `corrections.md` when the validator loops
 
 ## Does not
 
+- Touch `com.example.agentic.step1` (old chatbot-paste / talk screens)
 - Change Blueprint structure without developer approval
 - Run localization full-flow
 - Promote components to a shared design lib
@@ -47,20 +50,30 @@ allows a simpler Screen + optional Route pattern matching existing :app code.
 ## Workflow
 
 1. Read Blueprint + maps end-to-end.
-2. Create/update files:
+2. Create/update UI under `com.example.agentic.figma`:
    - `[Feature]Screen.kt` (and optional `[Feature]Route.kt` for clocks/timers)
    - Resources only if image-resolver already placed them
-3. Wire `@Preview` per major Blueprint state (at least Default).
-4. Do not wire `MainActivity` unless Environment Context says so.
-5. If `corrections.md` present, apply every actionable line, then stop.
+3. Wire `@Preview` per major Blueprint state (at least Default), phone width ~360.
+4. Add/update Paparazzi tests under `com.example.agentic.screenshot`:
+   - One `@Test` + `paparazzi.snapshot` per Blueprint state
+   - Wrap content in `AgenticWorkflowsTheme`
+   - Use `DeviceConfig.PIXEL_5` (or PIXEL_6), `showSystemUi = false`
+   - Name snapshots stably: `<feature>_<state>` snake_case
+   - `@get:Rule val paparazzi = Paparazzi(deviceConfig = DeviceConfig.PIXEL_5.copy(softButtons = false), showSystemUi = false)`
+5. Do not wire `MainActivity` unless Environment Context says so.
+6. If `corrections.md` present, apply every actionable line (including Paparazzi
+   layout fixes), then stop. Do not delete or re-record goldens yourself — the
+   validator owns `recordPaparazziDebug` on first baseline only.
 
 ## Output
 
 ```
 Files written:
-- path/to/File.kt
+- app/src/main/java/com/example/agentic/figma/...
+- app/src/test/java/com/example/agentic/screenshot/...
 Pending string TODOs: <count>
 Missing assets skipped: <count>
+Paparazzi tests: <count> states
 ```
 
 ## Error handling
