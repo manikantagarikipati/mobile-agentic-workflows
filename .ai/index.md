@@ -16,10 +16,6 @@ conventions stay out of here on purpose.
 | :--- | :--- |
 | [grilling](skills/grilling/) | Stress-test a plan — one question at a time |
 | [grill-me](skills/grill-me/) | Slash entry that runs `/grilling` |
-| [figma-compose](skills/figma-compose/) | Figma URL → Compose for `:app` / `examples/` |
-| [tdd](skills/tdd/) | Red → green, seam-first tests |
-| [diagnosing-bugs](skills/diagnosing-bugs/) | Hard bugs — build a feedback loop first |
-| [domain-modeling](skills/domain-modeling/) | Glossary + ADRs as decisions crystallise |
 
 ## OpenCode
 
