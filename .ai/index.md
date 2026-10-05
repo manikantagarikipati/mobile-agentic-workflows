@@ -16,6 +16,13 @@ conventions stay out of here on purpose.
 | :--- | :--- |
 | [grilling](skills/grilling/) | Stress-test a plan — one question at a time |
 | [grill-me](skills/grill-me/) | Slash entry that runs `/grilling` |
+| [figma-compose-builder](skills/figma-compose-builder/) | Figma URL → multi-agent Compose pipeline |
+
+## Agents
+
+| Agent pack | Role |
+| :--- | :--- |
+| [figma-compose-builder](agents/figma-compose-builder/) | Orchestrator + specialists (architect, strings, images, translator, validator, reviewer) |
 
 ## OpenCode
 
